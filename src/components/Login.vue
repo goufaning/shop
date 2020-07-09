@@ -57,8 +57,13 @@
                     if (!valid) return;
                     const {data : res} = await this.$http.post("login", this.loginForm);
                     console.log(res);
-                    if (res.meta.status != 200) return this.$message.error("用户名或密码错误");
-                    this.$message.success("登陆成功")
+                    if (res.code != 200) return this.$message.error(res.msg);
+                    this.$message.success(res.msg);
+                    // 保存token 项目中除了登陆其他接口访问需要token
+                    // 当页面关闭token失效，所以保存在sessionStorage中
+                    window.sessionStorage.setItem('token', res.data.token);
+                    // 跳转到后台主页
+                    this.$router.push('/home');
                 });
             }
         }
