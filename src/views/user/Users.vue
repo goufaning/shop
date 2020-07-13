@@ -178,7 +178,8 @@
             // 点击按钮添加新用户
             addManager() {
                 this.$refs.addFormRef.validate(valid => {
-                    console.log(valid)
+                    if (!valid) return
+                    // 发起添加用户的网络请求
                 })
             }
         }
