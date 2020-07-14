@@ -68,7 +68,7 @@
                 this.$router.push('/login')
             },
             async getMenuList() {
-                const {data: res} = await this.$http.get('menus');
+                const {data: res} = await this.$http.get('rights/menus');
                 if (res.code != 200) return this.$message.error(res.msg)
                 this.menulist = res.data
                 console.log(this.menulist)
