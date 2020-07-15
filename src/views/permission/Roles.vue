@@ -148,7 +148,7 @@
             },
             // 通过递归的形式，获取角色下所有三级权限的id，并存到 defKeys 中
             getLeafKeys(node, arr) {
-                if (node.level === 2) {
+                if (node.level === 3) {
                     return arr.push(node.id)
                 }
                 node.children.forEach(item => {
