@@ -42,7 +42,6 @@
                     return this.$message.error(res.msg)
                 }
                 this.rightList = res.data
-                console.log(res.data)
             }
         }
     }

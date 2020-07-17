@@ -3,7 +3,7 @@
         <!-- 头部区域 -->
         <el-header>
             <div>
-                <img src="../assets/webpack-logo.png">
+                <img src="../assets/webpack-logo.png" alt="">
                 <span>电商后台管理系统</span>
             </div>
             <el-button type="info" @click="logout">退出</el-button>
@@ -69,9 +69,8 @@
             },
             async getMenuList() {
                 const {data: res} = await this.$http.get('rights/menus');
-                if (res.code != 200) return this.$message.error(res.msg)
+                if (res.code !== 200) return this.$message.error(res.msg)
                 this.menulist = res.data
-                console.log(this.menulist)
             },
             // 点击按钮切换菜单的展开和折叠
             toggleCollapse() {
